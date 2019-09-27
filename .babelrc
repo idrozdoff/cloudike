@@ -1,0 +1,14 @@
+{
+    "presets": [["env", {
+        "targets": {
+            "browsers": ["last 2 versions", "ie >= 10"]
+        }
+        }],
+        "flow", "es2015", "es2017", "stage-0", "react"],
+    "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "lodash"
+    ]
+}

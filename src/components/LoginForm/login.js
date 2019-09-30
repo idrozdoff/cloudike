@@ -11,7 +11,7 @@ import {
   email
 } from 'redux-form-validators'
 
-import type { FormProps } from 'redux-form'
+import type { FormProps, untouch } from 'redux-form'
 import { style } from './style'
 import { PasswordInput } from '../Input/PasswordInput'
 import { login, loginByPhone } from '../../actions/login'
@@ -47,6 +47,8 @@ class LoginForm extends Component< Props, void> {
   changeEnterMethod = () => {
     this.props.change("email", '')
     this.props.change("phone", '')
+    this.props.untouch("email")
+    this.props.untouch("phone")
     this.setState(state => ({ useEmail: !state.useEmail }))
   }
 
@@ -56,7 +58,12 @@ class LoginForm extends Component< Props, void> {
     } = this.state
 
     const {
-      classes, handleSubmit, loginUser, isLoading, errorText,
+      classes,
+      handleSubmit,
+      loginUser,
+      isLoading,
+      errorText,
+      loginByPhoneUser,
     } = this.props
 
     return (

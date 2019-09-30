@@ -3,6 +3,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import injectSheet from 'react-jss'
+import { Album as AlbumContainer} from '../Album'
 
 import { style } from './style'
 
@@ -24,12 +25,10 @@ export class PrivateApp extends React.Component< PrivateAppProps, void> {
     } = this.props
     return (
       <div className={classes.root}>
-        <AppToolBarContainer />
-        <AppMenu />
         <Switch>
           <Route path="/logout" />
-          <Route path="/album" component={DashboardContainer} />
-          <Route exact path="/" component={DashboardContainer} />
+          <Route path="/album" component={AlbumContainer} />
+          <Route exact path="/" component={AlbumContainer} />
         </Switch>
       </div>
     )

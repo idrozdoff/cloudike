@@ -29,16 +29,16 @@ const initialState: User = emptyUser
 const onSuccess = (state, action) => ({
   ...state,
   pending: 0,
-  token: action.token,
-  user_id: action.user_id,
-  name: action.name,
-  id: action.id,
-  created: action.created,
-  expires: action.expires,
-  device_description: action.device_description,
-  offer_url: action.offer_url,
-  user_eid: action.user_eid,
-  userid: action.userid,
+  token: action.data.token,
+  user_id: action.data.user_id,
+  name: action.data.name,
+  id: action.data.id,
+  created: action.data.created,
+  expires: action.data.expires,
+  device_description: action.data.device_description,
+  offer_url: action.data.offer_url,
+  user_eid: action.data.user_eid,
+  userid: action.data.userid,
 })
 
 export const auth = typeToReducer({

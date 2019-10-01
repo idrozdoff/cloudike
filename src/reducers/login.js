@@ -8,7 +8,9 @@ import {
 
 const emptyUser: Object = {
   pending: 0,
-  error: {}
+  error: {
+    details: '',
+  }
 }
 
 const initialState: Object = emptyUser
@@ -24,7 +26,7 @@ const onError = (state, action) => {
   const newState = {
     ...state,
     error: {
-      details: action.error.data.non_field_errors[0]
+      details: action.error.data.description
     },
     pending: state.pending - 1,
   }

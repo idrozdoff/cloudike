@@ -1,19 +1,30 @@
 // @flow
 
 import React from 'react'
-import injectSheet from 'react-jss'
+import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import { connect } from 'react-redux'
 
 import LoginForm from '../../components/LoginForm/login'
 import { style } from './style'
 import loginImg from '../../images/logo1.png'
+import { StyledErrorBlock } from '../../components/ErrorBlock'
 
 import type { Props } from './type'
 
-@injectSheet(style)
+const mapStateToProps = state => ({
+  error: (state.login.error && state.login.error.details),
+})
+
+const mapDispatchToProps = dispatch => ({
+})
+
+
+@withStyles(style)
+@connect(mapStateToProps, mapDispatchToProps)
 export class Login extends React.Component< Props, void> {
   render() {
-    const { classes } = this.props
+    const { classes, error } = this.props
     return (
       <div className={classes.root}>
         <div className={classes.container}>
